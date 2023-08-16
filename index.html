@@ -4,78 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
-    <style>
-        body {
-            font: normal 18pt Arial;
-            justify-content: center;
-            background-image: url(../som/download.jpeg);
-            background-cover: center;
-            background-size: cover;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            line-height: 2;
-        }
-        input {
-            font: normal 20pt Arial;
-            width: 120px;
-        }
-        div#button {
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Exo+2:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="calc.js"></script>
 </head>
 <body>
-    <h1>Calculadora</h1>
-    <input type="number" name="texto1" id="texto1"> com
-    <input type="number" name="texto2" id="texto2">
-    <div id="button">
-        <input type="button" value="÷" onclick="dividir()" style="width: 50px;">
-        <input type="button" value="+" onclick="somar()" style="width: 50px;">
-        <input type="button" value="×" onclick="multiplicar()" style="width: 50px;">
-        <input type="button" value="-" onclick="subtrair()" style="width: 50px;">
-        <input type="button" value="%" onclick="porcentagem()" style="width: 50px;">
+    <div class="atras">
+        <div class="calculadora">
+            <h1>DONDA</h1>
+            <p id="resultado"></p>
+            <table>
+                <tr>
+                    <td><button class="botao" onclick="clean()">DEL</button></td>
+                    <td><button class="botao" onclick="back()">&larr;</button></td>
+                    <td><button class="botao" onclick="insert('/')">÷</button></td>
+                    <td><button class="botao" onclick="insert('*')">×</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('7')">7</button></td>
+                    <td><button class="botao" onclick="insert('8')">8</button></td>
+                    <td><button class="botao" onclick="insert('9')">9</button></td>
+                    <td><button class="botao" onclick="insert('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('4')">4</button></td>
+                    <td><button class="botao" onclick="insert('5')">5</button></td>
+                    <td><button class="botao" onclick="insert('6')">6</button></td>
+                    <td><button class="botao" onclick="insert('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('1')">1</button></td>
+                    <td><button class="botao" onclick="insert('2')">2</button></td>
+                    <td><button class="botao" onclick="insert('3')">3</button></td>
+                    <td rowspan="2"><button class="botao" style="height: 135px; width: 55px;" onclick="calcular()">=</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="botao" style="width: 120px;" onclick="insert('0')">0</button></td>
+                    <td><button class="botao" onclick="insert('.')"><strong>.</strong></button></td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div id="resultado">Resultado da soma:</div>
-    <script>
-        const t1 = document.getElementById('texto1');
-        const t2 = document.getElementById('texto2');
-        const resultado = document.getElementById('resultado')
-
-        function somar() {
-            const n1 = Number(t1.value)
-            const n2 = Number(t2.value)
-            const r = n1 + n2
-            resultado.innerHTML = `O resultado da soma entre ${n1} e ${n2} é <strong>${r}</strong>`
-        }
-
-        function dividir() {
-            const d1 = Number(t1.value)
-            const d2 = Number(t2.value)
-            const r2 = d1 / d2
-            resultado.innerHTML = `O resultado da divisão entre ${d1} e ${d2} é <strong>${r2}</strong>`
-        }
-        function multiplicar() {
-            const m1 = Number(t1.value)
-            const m2 = Number(t2.value)
-            const r3 = m1 * m2
-            resultado.innerHTML = `O resultado da multiplicação entre ${m1} e ${m2} é <strong>${r3}</strong>`
-        }
-        function porcentagem() {
-        const p1 = Number(t1.value)
-        const p2 = Number(t2.value) 
-        const r5 = p1 % p2
-        resultado.innerHTML = `A porcentagem de ${p1}% de ${p2} é <strong>${r5}</strong>`
-        }
-        function subtrair() {
-        const s1 = Number(t1.value)
-        const s2 = Number(t2.value) 
-        const r4 = s1 - s2
-        resultado.innerHTML = `O resultado da subtração entre ${s1} e ${s2} é <strong>${r4}</strong>`
-        }
-        
-    </script>
 </body>
 </html>
